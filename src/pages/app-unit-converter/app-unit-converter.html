@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon class='nav-icon' name="menu"></ion-icon>
+  </button>
+    <div class='logo-container' (tap)='navCtrl.popToRoot()'>
+      <img src='assets/img/wireless-logo.gif'>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <comp-page-title [title]='"QUICKTOOL-UNIT"'></comp-page-title>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-select [(ngModel)]="selectedUnit" interface='popover' (ionChange)='onUnitSelect($event)' text-center [selectedText]='selectedUnit.name'>
+            <ion-option [value]="unit" *ngFor='let unit of units'>{{unit.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row text-center>
+      <ion-col col-5>
+        <ion-item>
+          <ion-input type='number' [(ngModel)]='enteredValue' (input)='onConvertValue()' text-center></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-2>
+        <p>=</p>
+      </ion-col>
+      <ion-col col-5>
+        <ion-item>
+          <ion-input type='number' name='convertedValue' [(ngModel)]='convertedValue' disabled='true' text-center></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-5>
+        <ion-item>
+          <ion-select [(ngModel)]='leftMeasure' interface='popover' (ionChange)='onConvertValue()'>
+            <ion-option [value]='sel.abbr' *ngFor='let sel of selectedUnit.measures'>{{sel.singular}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+      <ion-col col-2>
+      </ion-col>
+      <ion-col col-5>
+        <ion-item>
+          <ion-select [(ngModel)]='rightMeasure' interface='popover' (ionChange)='onConvertValue()'>
+            <ion-option [value]='sel.abbr' *ngFor='let sel of selectedUnit.measures'>{{sel.singular}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,19 @@
+page-splash {
+  .logo-container {
+    width: 75%;
+    float: left;
+  }
+  .logo-container img {
+    max-height: 41px;
+  }
+  .toolbar-ios ion-title {
+    padding: 0 50px 1px;
+  }
+  ion-buttons {
+    float: right;
+  }
+  .close-btn {
+    font-size: 28px;
+    margin-top: 7px;
+  }
+}

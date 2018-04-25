@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon class='nav-icon' name="menu"></ion-icon>
+  </button>
+    <div class='logo-container' (tap)='navCtrl.popToRoot()'>
+      <img src='assets/img/wireless-logo.gif'>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class='main-container' padding>
+  <comp-page-title [title]='"USERPROFILE-PW"'></comp-page-title>
+  <div>
+    <form (ngSubmit)="changePw(changePwForm)" [formGroup]='changePwForm'>
+      <ion-list inset>
+        <div *ngIf='pwOnly; else ranCode;'>
+          <ion-item class='input-container'>
+            <ion-input type="password" placeholder='{{"CHANGEPW-C-PW" | translate}}' name="cPassword" formControlName="cPassword" required></ion-input>
+          </ion-item>
+          <div class='error-message' *ngIf="changePwForm.get('cPassword').hasError('required') && changePwForm.get('cPassword').touched">
+            <p>Password is required</p>
+          </div>
+        </div>
+        <ng-template #ranCode>
+          <ion-item class='input-container'>
+            <ion-input type="text" placeholder='{{"CHANGEPW-CODE" | translate}}' name="ranCode" formControlName='ranCode' required></ion-input>
+          </ion-item>
+          <div class='error-message' *ngIf="changePwForm.get('ranCode').hasError('required') && changePwForm.get('ranCode').touched">
+            <p>Security Code is required</p>
+          </div>
+        </ng-template>
+        <ion-item class='input-container'>
+          <ion-input type="password" name="nPassword" placeholder='{{"CHANGEPW-PW" | translate}}' formControlName='nPassword' required></ion-input>
+        </ion-item>
+        <div class='error-message' *ngIf="changePwForm.get('nPassword').hasError('required') && changePwForm.get('nPassword').touched">
+          <p>Password is required</p>
+        </div>
+        <div class='error-message' *ngIf="changePwForm.get('nPassword').hasError('pattern') && changePwForm.get('nPassword').touched">
+          <p>Minimum of 6 characters with at least 1 number</p>
+        </div>
+        <ion-item class='input-container'>
+          <ion-input type="password" name="nPasswordConfirm" placeholder='{{"CHANGEPW-PWC" | translate}}' formControlName="nPasswordConfirm" required></ion-input>
+        </ion-item>
+      </ion-list>
+      <div class='btn-container'>
+        <button ion-button class="submit-btn" full type="submit" [disabled]="!changePwForm.valid">{{"CHANGEPW-BTN" | translate}}</button>
+      </div>
+    </form>
+  </div>
+</ion-content>

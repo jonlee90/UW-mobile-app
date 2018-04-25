@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon class='nav-icon' name="menu"></ion-icon>
+  </button>
+    <div class='logo-container' (tap)='navCtrl.popToRoot()'>
+      <img src='assets/img/wireless-logo.gif'>
+    </div>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <div>
+    <form (ngSubmit)="onAddForum()" #forumForm='ngForm'>
+      <ion-list radio-group [(ngModel)]="is_public" name='is_public' required>
+        <ion-list-header>
+          {{'FORUM-ADD-TYPE' | translate}}
+        </ion-list-header>
+        <ion-item>
+          <ion-label>{{'FORUM-ADD-PRIV' | translate}}</ion-label>
+          <ion-radio value="0" checked></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>{{'FORUM-ADD-PUB' | translate}}</ion-label>
+          <ion-radio value="1"></ion-radio>
+        </ion-item>
+      </ion-list>
+      <ion-item class='input-container'>
+        <ion-input name="title" [(ngModel)]="title" [placeholder]="'FORUM-ADD-TITLE' | translate" required></ion-input>
+      </ion-item>
+      <ion-item class='input-container'>
+        <ion-textarea name="message" [(ngModel)]="message" [placeholder]="'FORUM-ADD-MSG' | translate" maxlength="950" required></ion-textarea>
+      </ion-item>
+      <div class='btn-container'>
+        <button ion-button class="submit-btn" full type="submit" [disabled]="!forumForm.form.valid">{{'FORUM-ADD-BTN' | translate}}</button>
+      </div>
+    </form>
+  </div>
+</ion-content>

@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon class='nav-icon' name="menu"></ion-icon>
+  </button>
+    <div class='logo-container' (tap)='navCtrl.popToRoot()'>
+      <img src='assets/img/wireless-logo.gif'>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row class='phone-brand'>
+      <ion-col text-center>
+        {{selectedPhone.brand}} 
+      </ion-col>
+    </ion-row>
+    <ion-row class='phone-title'>
+      <h2>{{selectedPhone.p_name}}</h2>
+    </ion-row>
+    <ion-row>
+      <div class='phone-price' [class.sale-price]='selectedPhone.price_sale'>
+        ${{selectedPhone.price_sale ? selectedPhone.price_sale : selectedPhone.price}}/mo
+      </div>
+    </ion-row>
+    <ion-row>
+      <div class='phone-desc'>
+        {{selectedPhone.desc_short}}
+      </div>
+    </ion-row>
+    <ion-row>
+      <div [style.height]='containerHeight' #slideContainer class='pic-container'>
+        <ion-slides centeredSlides #slides (ionSlideDidChange)="slideChanged()" class='photo-slides' pager='true'>
+          <ion-slide *ngFor='let photo of selectedPhone.photos' (click)='onPhotoClick(photo.image)'>
+            <table style='margin: 0 auto;'>
+              <tr>
+                <td>
+                  <img [src]='photo.image' (load)="imageLoaded()" [ngClass]="{'img-loaded':loaded}" [style.visibility]="checkLoaded()" />
+                  <ion-spinner [ngClass]="{'center':true}" *ngIf="!loaded"></ion-spinner>
+                </td>
+              </tr>
+            </table>
+          </ion-slide>
+        </ion-slides>
+      </div>
+    </ion-row>
+    <ion-row class='phone-info-title'>
+        <div>{{'PHONEINFO-INFO' | translate}}</div>
+    </ion-row>
+    <div class='phone-option-container' *ngFor='let option of selectedPhone.phone_attr'>
+        <ion-row>{{option.attr_name}}</ion-row>
+        <ion-row>{{option.attr_val}}</ion-row>
+    </div>
+  </ion-grid>
+</ion-content>
+
+
+

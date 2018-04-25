@@ -1,0 +1,70 @@
+page-signup {
+  .main-container, .terms-container ion-item {
+    background-color: color($colors, primary);
+  }
+  .header-container {
+    margin-top: 15px;
+  }
+  .header-container p{
+    margin: 0px;
+    color: white;
+  }
+  .submit-btn {
+    color: color($colors, secondary);
+  }
+  .input-container {
+    background-color: white;
+  }
+  .input-container:not(:last-child) {
+    margin-bottom: 15px;
+  }
+  .signup-col {
+    padding: 0px 21px;
+  }
+  .terms-container {
+    margin: 0 auto;
+    ion-label {
+      white-space: normal;
+    }
+  }
+  .terms-container ion-item{
+    font-size: 13px;
+    padding: 10px 20px;
+    color: white;
+  }
+  .list-ios[inset] {
+    border-radius: 0px;
+    margin-bottom: 0px;
+  }
+  .list-ios[inset] .item {
+    border-bottom: none;
+  }
+  .list-md[inset] {
+    margin-bottom: 0px;
+  }
+  .list-md[inset] .item-input {
+    padding-left: 16px;
+  }
+  .select-md {
+    padding: 13px 5px 13px 0px;
+  }
+  .item-ios.item-block .item-inner {
+    border: none;
+  }
+  .item-md.item-block .item-inner {
+    border: none;
+  }
+  .item.item-md .checkbox-md {
+    margin: 9px 9px 9px 4px;
+  }
+  .item.item-ios .checkbox-ios {
+    margin: 8px 8px 8px 2px;
+  }
+  .content-ios .label-container {
+    color: #999;
+  }
+  .content-md .label-container {
+    padding-left: 24px;
+  }
+    
+}

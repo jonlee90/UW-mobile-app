@@ -1,0 +1,30 @@
+page-store-list {
+  .searchbar-md .searchbar-input {
+    padding: 6px 40px;
+  }
+  .button-ios { 
+    height: 1.8em;
+  }
+  .grid {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+  .location-container {
+    position: relative;
+  }
+  .location-container ion-icon {
+    font-size: 30px;
+    position: absolute;
+    bottom: 11px;
+    left: -2px;
+  }
+  .content-ios .location-container ion-icon {
+    bottom: 8px;
+  }
+  .item-md.item-block .item-inner { 
+    border-bottom: none;
+  }
+  .item-ios.item-block .item-inner {
+    border-bottom: none;
+  }
+}

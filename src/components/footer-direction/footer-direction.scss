@@ -1,0 +1,16 @@
+comp-footer-direction {
+  .footer-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 99;
+    background-color: color($colors, primary);
+    color: white;
+    opacity: .9;
+    padding: 10px 0;
+    font-size: 11px;
+  }
+  .footer-container div {
+    text-align: center;
+  }
+}   

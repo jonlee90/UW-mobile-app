@@ -1,0 +1,52 @@
+page-plans {
+  .scroll-content {
+    padding-top: 0px!important;
+  }
+  .input-container {
+    background-color: white;
+  }
+  .content-ios .label-container {
+    color: #999;
+    padding-left: 0px;
+  }
+  ion-grid {
+    padding-left: 20px!important;
+  }
+  .content-md .label-container {
+    padding-left: 0px;
+  }
+  .plan-type-container {
+    margin-top: 60px;
+    div {
+      font-weight: bold;
+      font-size: 80px;
+    }
+  }
+  .plan-info-container {
+    margin-top: 20px;
+    div {
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
+  .plan-tax {
+    font-size: 12px;
+  }
+  ul {
+    padding-left: 20px;
+    width: 100%;
+  }
+  ion-select {
+    width: 100%;
+    max-width: 100%;
+  }    
+  .item-ios.item-block .item-inner {
+    border: 0.55px solid #c8c7cc;
+  }
+  .item-md.item-block .item-inner { 
+    border: 1px solid #dedede;
+  }
+  .select-ios .select-icon .select-icon-inner, .select-md .select-icon .select-icon-inner {
+    color: color($colors, primary);
+  }
+}

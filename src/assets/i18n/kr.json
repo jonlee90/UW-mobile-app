@@ -1,0 +1,121 @@
+{
+    "NAV-MYACCOUNT": "마이페이지",
+    "NAV-LOGOUT": "로그아웃",
+    "NAV-ENGLISH": "영어",
+    "NAV-KOREAN": "한국어",
+    "NAV-LOGIN": "로그인",
+    "NAV-HOME": "홈",
+    "NAV-PROMOTION": "프로모션",
+    "NAV-STORES": "스토어",
+    "NAV-QUICK-TOOLS": "퀵툴",
+    "NAV-FAQ": "자주하는 질문",
+    "NAV-CONTACT": "고객센터",
+
+    "HOME-STORES": "스토어 위치",
+    "HOME-PHONES": "디바이스",
+    "HOME-NOTICE": "공지",
+    "HOME-PLANS": "버라이즌 플랜",
+    "HOME-APPS": "추천 어플",
+    "HOME-LINKS": "추천 링크",
+    "HOME-TIPS": "유용한 팁",
+    "HOME-FAQ": "자주하는 질문",
+    "HOME-CALL": "고객센터",
+    "HOME-YOUTUBE": "동영상",
+
+    "HOME-SEC-NOTICE": "공지",
+    "HOME-SEC-NEW": "새로 올라온 글",
+    "HOME-SEC-ALL": "더보기",
+
+    "CONTACT-TITLE": "고객센터",
+
+    "LOGIN-HEADER": "로그인",
+    "LOGIN-FORGOTPW": "비밀번호 찾기",
+    "LOGIN-LOGIN": "로그인",
+    "LOGIN-REGISTER": "가입하기",
+    "LOGIN-EMAIL": "이메일",
+    "LOGIN-PW": "비밀번호",
+     
+    "SIGNUP-HEADER": "가입",
+    "SIGNUP-FNAME": "이름",
+    "SIGNUP-LNAME": "성",
+    "SIGNUP-EMAIL": "이메일",
+    "SIGNUP-DOB": "생일",
+    "SIGNUP-STORE": "스토어 선택",
+    "SIGNUP-PW": "비밀번호",
+    "SIGNUP-PWC": "비밀번호 확인",
+    "SIGNUP-TERM": "개인정보 취급방침 및 이용약관에 동의합니다",
+    "SIGNUP-BTN": "가입하기",
+
+    "FORGOTPW-HEADER": "비밀번호 찾기",
+    "FORGOTPW-EMAIL": "이메일",
+    "FORGOTPW-BTN": "보내기",
+
+    "CHANGEPW-C-PW": "비밀번호",
+    "CHANGEPW-PW": "새 비밀번호",
+    "CHANGEPW-PWC": "새 비밀번호 확인",
+    "CHANGEPW-BTN": "확인",
+    "CHANGEPW-CODE": "보안 코드",
+    
+    "USERPROFILE-LNAME": "성",
+    "USERPROFILE-FNAME": "이름",
+    "USERPROFILE-NAME": "이름",
+    "USERPROFILE-EMAIL": "이메일",
+    "USERPROFILE-DOB": "생년월일",
+    "USERPROFILE-PHONE": "전화번호",
+    "USERPROFILE-DATE-CONTRACT": "가입 날짜",
+    "USERPROFILE-DATE-UPGRADE": "업데이트 가능 날짜",
+    "USERPROFILE-DEVICE": "디바이스 번호",
+    "USERPROFILE-DEVICE-NAME": "디바이스 이름",
+    "USERPROFILE-EDIT": "수정하기",
+    "USERPROFILE-SAVE": "저장",
+    "USERPROFILE-PW": "비밀번호 변경",
+
+    "FORUM-LIST-ADDBTN": "질문 등록하기",
+    
+    "FORUM-ADD-TYPE": "공개 여부",
+    "FORUM-ADD-PRIV": "개인 메새지",
+    "FORUM-ADD-PUB": "공개 메새지",
+    "FORUM-ADD-TITLE": "제목을 입력해 주세요",
+    "FORUM-ADD-MSG": "내용을 입력해 주세요",
+    "FORUM-ADD-BTN": "등록",
+
+    "FORUM-INFO-COUNT": "조회수",
+    "FORUM-INFO-REPLIES": "댓글",
+
+    "LINK-GO-LINK": "링크 바로가기",
+
+    "STORE-LIST-TITLE": "가까운 스토어 찾기",
+    "STORE-SEARCH-PLACEHOLDER": "주소 또는 우편번호를 입력하세요",
+    "STORE-BTN": "검색",
+
+    "STORE-INFO-MANAGER": "매니저",
+    "STORE-INFO-PHONE": "전화 번호",
+    "STORE-INFO-EMAIL": "이메일",
+    "STORE-INFO-ADDRESS": "주소",
+
+    "PLAN-TITLE": "요금제",
+    "PLAN-TAX": "세금 별도",
+    "PLAN-MONTH": "월",
+
+    "SEARCHBAR": "검색어를 입력하세요",
+
+    "PHONELIST-TITLE": "디바이스",
+    "PHONELIST-FILTER": "필터",
+
+    "PHONEINFO-INFO": "디바이스 정보",
+
+    "QUICKTOOL-TITLE": "퀵툴",
+    "QUICKTOOL-CALC": "계산기",
+    "QUICKTOOL-DATECALC": "날짜 계산기",
+    "QUICKTOOL-FLASHLIGHT": "보조등",
+    "QUICKTOOL-HOLIDAY": "공휴일 달력",
+    "QUICKTOOL-HOLIDAY-TITLE": "가까운 공휴일",
+    "QUICKTOOL-HOLIDAY-TODAY": "금일",
+    "QUICKTOOL-UNIT": "단위 변환기",
+
+    "LINKS-TITLE": "유용한 링크",
+
+    "FORUM-LIST-TITLE": "자주하는질문",
+
+    "FOOTER": "스크롤하면 더 보실수 있습니다"
+}

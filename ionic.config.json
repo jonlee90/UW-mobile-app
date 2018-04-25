@@ -1,0 +1,8 @@
+{
+  "name": "wireless",
+  "app_id": "9d9edcb3",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

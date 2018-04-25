@@ -1,0 +1,67 @@
+page-home {
+  .image-container {
+    text-align: center;
+    padding: 20px 0px;
+    width: 55%;
+    margin: 0 auto;
+  }
+  .image-container img {
+    width: 100%;
+  }
+  .menu-category{
+    text-align: center;
+  }
+  .icon-container {
+    width: 46px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .icon-container ion-icon {
+    font-size: 30px;
+    color: color($colors, primary);
+    padding: 8px;
+  }
+  .text-container p {
+    margin-top: 5px;
+    font-weight: bold;
+  }
+  .icon2 {
+    position: absolute;
+    font-size: 16px!important;
+    left: 16px;
+    top: 7px;
+  }
+  .section-title {
+    background-color: rgb(66, 66, 68);
+    color: white;
+    margin-top: 20px;
+  }
+  .section-title ion-icon {
+    color: color($colors, primary);
+    font-size: 14px;
+  }
+  .section-title span {
+    color: white;
+  }
+  .select-all {
+    text-align: right;
+    font-family: "Ionicons";
+  }
+  .border-side {
+    border-right: .5px solid rgb(204, 204, 204);
+    border-left: .5px solid rgb(204, 204, 204);
+  }
+  .border-topBot {
+    border-top: .5px solid rgb(204, 204, 204);
+    border-bottom: .5px solid rgb(204, 204, 204);
+  }
+  .border-all {
+    border: .5px solid rgb(204, 204, 204);
+  }
+  .forum-section {
+    padding: 0 15px;
+  }
+  .extraElement {
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon class='nav-icon' name="menu"></ion-icon>
+    </button>
+    <div class='logo-container' (tap)='navCtrl.popToRoot()'>
+      <img src='assets/img/wireless-logo.gif'>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content (ionScroll)="onScroll($event)">
+  <comp-page-title [title]='"STORE-LIST-TITLE"'></comp-page-title>
+  <ion-grid>
+    <form (ngSubmit)="onSearch()" #searchForm="ngForm">
+      <ion-row>
+        <ion-col>
+            <ion-searchbar #search [(ngModel)]="addy" name='addy' placeholder='{{"STORE-SEARCH-PLACEHOLDER" | translate}}' required></ion-searchbar>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-11>
+            <button ion-button full type='submit' [disabled]='!searchForm.form.valid' full>{{'STORE-BTN' | translate}}</button>
+        </ion-col>
+        <ion-col class='location-container' col-1>
+          <ion-icon name="ios-locate-outline" class='search-icons' (click)='getMyLocation(search)'></ion-icon> 
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+  <div padding>
+    <comp-post-container *ngFor='let store of stores; let i = index' [containerName]='"store"' [item]='store' [itemsLength]='stores.length - 1' [count]='i' (tap)='onStoreClick(store)'></comp-post-container>
+  </div>
+</ion-content>
+<comp-footer-direction [displayFooter]='displayFooter' [typeOfPage]='"stores"'></comp-footer-direction>

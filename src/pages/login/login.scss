@@ -1,0 +1,52 @@
+page-login {
+  .main-container {
+    background-color: color($colors, primary);
+  }
+  .header-container {
+    margin-top: 80px;
+    color: white;
+  }
+  .register-btn {
+    color: color($colors, secondary);
+  }
+  .login-box {
+    background-color: white;
+    padding-bottom: 10px; 
+  }
+  .input-container {
+    background-color: rgb(230, 231, 232);
+  }
+  .input-container:first-child {
+    margin-bottom: 15px;
+  }
+  .register-container {
+    margin-top: 50px;
+    color: color($colors, primary);
+  }
+  .forgot-btn {
+    font-size: 12px;
+    color: gray;
+    text-transform: initial;
+    padding-left: 0px;
+  }
+  .btn-container {
+    margin: 0px 16px; 
+  }
+  .triangle-topright {
+    width: 0;
+    height: 0;
+    border-top: 40px solid white;
+    border-left: 40px solid transparent;
+    margin-left: 60px;
+  }
+  .list-ios[inset], .list-md[inset] {
+    border-radius: 0px;
+    margin-bottom: 0px;
+  }
+  .list-ios[inset] .item {
+    border-bottom: none;
+  }
+  .btn {
+    font-size: 14px;
+  }
+}

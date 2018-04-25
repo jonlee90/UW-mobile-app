@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon class='nav-icon' name="menu"></ion-icon>
+  </button>
+    <div class='logo-container' (tap)='navCtrl.popToRoot()'>
+      <img src='assets/img/wireless-logo.gif'>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <comp-page-title [title]='"HOME-YOUTUBE"'></comp-page-title>
+  <comp-post-container *ngFor='let forum of forums; let i = index' [containerName]='"post"' [itemsLength]='forums.length - 1' [item]='forum' [count]='i' (tap)='onVideoClick(forum)'></comp-post-container>
+  <ion-infinite-scroll (ionInfinite)="getMoreForums($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
+<comp-footer-direction [displayFooter]='displayFooter' [typeOfPage]='"posts"'></comp-footer-direction>

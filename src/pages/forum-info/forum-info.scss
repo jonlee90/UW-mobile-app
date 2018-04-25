@@ -1,0 +1,35 @@
+page-forum-info {
+  .name-date {
+    color: gray;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  ion-list {
+    padding: 0 20px;
+  }
+  .forum-info div {
+    margin-bottom: 5px;
+  }
+  .forum-info {
+    font-weight: 200;
+  }
+  .reply-section {
+    background-color: color($colors, primary);
+    color: white;
+  }
+  .forum-title {
+    font-weight: 500;
+    font-size: 16px;
+  }
+  .forum-body {
+    background-color: rgb(243, 243, 245);
+    margin-bottom: 10px;
+  }
+  .forum-body, .forum-title, .reply-section {
+    padding: 10px;
+  }
+  comp-youtube-player {
+    width: 100%;
+  }
+}

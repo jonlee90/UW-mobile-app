@@ -1,0 +1,51 @@
+page-user-profile {
+  .profile-header {
+    background-color: rgb(66, 65, 67);
+    color: color($colors, primary);
+  }
+  .user-avatar-container {
+    margin: 28px 0px;
+    ion-avatar{
+      width: 30%;
+      margin: 0 auto;
+    }
+  }
+  .user-avatar-container img {
+    border-radius: 50%;
+  }
+  .profile-email {
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  .profile-body {
+    .grid {
+      padding: 5px 0px;
+    }
+    ion-row {
+      border-top: 1px solid #dddddd;
+    }
+    ion-row:nth-child(even) {
+      background-color: rgb(243, 243, 245);
+    }
+    ion-row:last-child {
+      border-bottom: 1px solid #dddddd;
+    }
+    .item-ios, .item-md {
+      padding-left: 0px;
+      font-size: 14px;
+    }
+  }
+  .extra-container {
+    margin-bottom: 30px;
+  }
+  .btn-container {
+    width: 100%;
+  }
+  @media only screen and (max-width: 375px) {
+    .profile-body {
+      ion-grid {
+          font-size: 12px;
+      }
+    }
+  } 
+}

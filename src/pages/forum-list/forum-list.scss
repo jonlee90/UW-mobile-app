@@ -1,0 +1,25 @@
+page-forum-list {
+  .scroll-content {
+    padding-top: 0px!important;
+  }
+  .reply-count {
+    margin: 0px;
+  }
+  .name-date {
+    color: gray;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  p {
+    font-weight: bold;
+  }
+  .search-bar-container {
+    margin-bottom: 15px;
+    margin-top: 13px;
+    padding: 5px 0px; 
+  }
+  .add-btn-container span {
+    font-size: 16px;
+  }
+}

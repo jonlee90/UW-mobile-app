@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon class='nav-icon' name="menu"></ion-icon>
+  </button>
+    <div class='logo-container' (tap)='navCtrl.popToRoot()'>
+      <img src='assets/img/wireless-logo.gif'>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <comp-page-title [title]='"PLAN-TITLE"'></comp-page-title>
+  <ion-grid>
+    <ion-row>
+      <ion-item class='input-container label-container'>
+        <ion-select [(ngModel)]='selectedPlan' interface='popover' required>
+          <ion-option *ngFor='let plan of plans' [value]='plan'>{{plan.plan_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-row>
+    <div *ngIf='selectedPlan'>
+    <ion-row class='plan-type-container'>
+      <div>{{selectedPlan.plan_name.charAt(0)}}</div>
+    </ion-row>
+    <ion-row class='plan-info-container'>
+      <div>
+        ${{selectedPlan.price}} / {{'PLAN-MONTH' | translate}}
+      </div>
+    </ion-row>
+    <ion-row>
+      <div class='plan-tax'>***{{'PLAN-TAX' | translate}}</div>
+    </ion-row>
+    <ion-row>
+      <ul>
+        <li *ngFor='let attr of selectedPlan.plan_attr'>{{attr.attr_val}}</li>
+      </ul>
+    </ion-row>
+    </div>
+  </ion-grid>
+</ion-content>

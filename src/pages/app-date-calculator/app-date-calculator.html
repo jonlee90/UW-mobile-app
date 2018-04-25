@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon class='nav-icon' name="menu"></ion-icon>
+  </button>
+    <div class='logo-container' (tap)='navCtrl.popToRoot()'>
+      <img src='assets/img/wireless-logo.gif'>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <comp-page-title [title]='"QUICKTOOL-DATECALC"'></comp-page-title>
+  <ion-grid>
+    <ion-row>
+      <p>From:</p>
+    </ion-row>
+    <form (ngSubmit)="onGetRemainingDays()" #dateCalc="ngForm">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-input type="number" [(ngModel)]='currentMonth' name='currentMonth' placeholder='Month' required></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-input type="number" [(ngModel)]='currentDay' name='currentDay' placeholder='Day' required></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-input type="number" [(ngModel)]='currentYear' name='currentYear' placeholder='Year' required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <p>To:</p>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-input type="number" [(ngModel)]='futureMonth' name='futureMonth' placeholder='Month' required></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-input type="number" [(ngModel)]='futureDay' name='futureDay' placeholder='Day' required></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-input type="number" [(ngModel)]='futureYear' name='futureYear' placeholder='Year' required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <button ion-button type='submit' [disabled]="!dateCalc.form.valid" full>Calculate</button>
+      </ion-row>
+    </form>
+    <ion-row class='remainingDays'>
+        <h2 *ngIf='remainingDays'>Remaining: {{remainingDays}}</h2>
+    </ion-row>  
+  </ion-grid>
+</ion-content>

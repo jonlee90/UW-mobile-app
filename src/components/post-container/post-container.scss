@@ -1,0 +1,81 @@
+comp-post-container {
+	ion-grid {
+		padding: 7px;
+		border-top: 1px solid black;
+	}
+	ion-icon {
+		color: color($colors, primary);
+	}
+	.forum-title {
+		font-weight: 500;
+	}
+	.forum-body {
+		font-weight: 100;
+		font-size: 12px;
+	}
+	.chat-container {
+		text-align: right;
+		padding: 5px 0px;
+	}
+	.chat-container:last-of-type {
+		text-align: center;
+	}
+	.store-number {
+		padding-left: 0px;
+		text-align: right;
+	}
+	.reply-title {
+		font-weight: 200;
+		font-size: 12px;
+	}
+	.reply-body {
+		font-size: 14px;
+	}
+	.reply-body span {
+		font-weight: 400;
+	}
+	.holi-name {
+		font-weight: bold;
+	}
+	.holi-remaining {
+		font-weight: 100;
+	}
+	.link-name {
+		font-weight: 600;
+		font-size: 14px;
+		padding-right: 0px;
+	}
+	.link-go {
+		text-align: right;
+		font-size: 12px;
+		padding-left: 0px;
+	}
+	.link-icon {
+		padding: 0px;
+	}
+	.link-url {
+		font-weight: 100;
+		font-size: 12px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.link-icon {
+		font-size: 22px;
+	}
+	.grid {
+		padding: 5px 0;
+	}
+	.store-name {
+		font-weight: bold;
+	}
+	.store-info {
+		font-size: 12px;
+	}
+	.store-addy {
+		font-size: 11px;
+	}
+	.store-distance {
+		font-size: 10px;
+	}
+}

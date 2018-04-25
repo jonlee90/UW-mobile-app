@@ -1,0 +1,32 @@
+page-app-date-countdown {
+  .calender-container {
+      min-height: 260px;
+  }
+  .today-btn {
+    position: absolute;
+    right: 20px;
+    top: 12px;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 0 15px;
+    height: 30px;
+  }
+  .date-container {
+    margin: 0 auto;
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  .calender {
+    ion-col {
+      text-align: center;
+    }
+  }
+  .day-container {
+    font-weight: 500;
+  }
+  .selectedDate {
+    border-radius: 50%;
+    background-color: color($colors, primary);
+  }
+}

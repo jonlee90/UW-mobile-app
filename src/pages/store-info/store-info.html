@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon class='nav-icon' name="menu"></ion-icon>
+  </button>
+    <div class='logo-container' (tap)='navCtrl.popToRoot()'>
+      <img src='assets/img/wireless-logo.gif'>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <comp-page-title [title]='currentStore.s_name'></comp-page-title>
+  <ion-grid>
+    <ion-row>
+      <div [style.height]='containerHeight' #slideContainer class='pic-container'>
+        <ion-slides centeredSlides (ionSlideDidChange)="slideChanged()" #slides class='photo-slides' pager='true'>
+          <ion-slide *ngFor='let photo of currentStore.store_imgs' (click)='onPhotoClick(photo.url)'>
+              <table style='margin: 0 auto;'>
+                  <tr>
+                      <td>
+                          <img [src]='photo.url' (load)="imageLoaded()" [ngClass]="{'img-loaded':loaded}" [style.visibility]="checkLoaded()" />
+                          <ion-spinner [ngClass]="{'center':true}" *ngIf="!loaded"></ion-spinner>
+                      </td>
+                  </tr>
+              </table>
+          </ion-slide>
+        </ion-slides>
+      </div>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class='picture-wrapper' col-3>
+        <table style='margin: 0 auto; height: 100%;'>
+          <tr>
+            <td>
+              <div class='profile-container' [style.background-image]='setBackgroundImage(currentStore.manager_img)'></div>
+            </td>
+          </tr>
+        </table>
+      </ion-col>
+      <ion-col col-9>
+        <ion-row>
+          <ion-col>{{'STORE-INFO-MANAGER' | translate}}: <span class='store-value'>{{(currentStore.manager_name == '0' ? 'Not Available' : currentStore.manager_name)}}</span></ion-col>
+        </ion-row>
+        <ion-row (tap)='onPhoneClick(currentStore.tel1)'>
+          <ion-col>{{'STORE-INFO-PHONE' | translate}}: <span class='store-value'>{{currentStore.tel1 | phoneNumber}}</span></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class='email-container'>{{'STORE-INFO-EMAIL' | translate}}: <span class='store-value'>{{currentStore.email}}</span></ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row class='address-label'>
+      {{'STORE-INFO-ADDRESS' | translate}}:
+    </ion-row>
+    <ion-row class='addy-container'>
+      <ion-col col-8>
+      {{currentStore.addr}} {{currentStore.addr2}} <br>
+      {{currentStore.city}}, {{currentStore.ca}} {{currentStore.zip}}
+      </ion-col>
+      <ion-col col-2 (tap)='onLocationClick()'>
+          <ion-icon name="ios-pin"></ion-icon>
+      </ion-col>
+      <ion-col col-2 (tap)='onAddressClick(currentStore)'>
+          <ion-icon name="ios-map"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div #map id='map'></div>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf='currentStore.yelp' (click)='onYelpClick(currentStore.yelp.url)'>
+      <ion-col col-5>
+        <img src='assets/img/yelp.png'>
+      </ion-col>
+      <ion-col col-7 class='rating-container'>
+        <img class='yelp-rating' [src]='getYelpRating(currentStore.yelp)'>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

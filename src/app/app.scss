@@ -1,0 +1,102 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+$icon-detail-push-background-svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 20'><path d='M2,20l-2-2l8-8L0,2l2-2l10,10L2,20z' fill='fg-color'/></svg>" !default;
+$item-md-detail-push-color: $list-md-border-color !default;
+
+@mixin md-detail-push-icon($fg-color) {
+  $svg: str-replace($icon-detail-push-background-svg, 'fg-color', $fg-color);
+  @include svg-background-image($svg);
+}
+
+button.item:not([detail-none]) .item-inner,
+a.item:not([detail-none]) .item-inner,
+.item[detail-push] .item-inner{
+  @include md-detail-push-icon($item-md-detail-push-color);
+  background-repeat: no-repeat;
+  background-position: right (15px - 2) center;
+  background-size: 14px 14px;
+  padding-right: 32px;
+}
+.error-message {
+  color: red;
+  padding: 0 15px;
+}
+.toolbar-background-md, .toolbar-ios ion-title {
+  background-color: color($colors, primary);
+  color: white;
+}
+.toolbar-title-ios, .toolbar-title-md {
+  color: white;
+}
+.label-md {
+  margin: 10px 8px 10px 0;
+}
+ion-searchbar {
+  background: color($colors, primary)!important;
+}  
+.swiper-pagination-bullet-active {
+  background: color($colors, primary);
+}
+.activeHighlight {
+  background-color: color($colors, primary)!important;
+}
+
+// navbar
+ion-navbar {
+  .logo-container {
+        width: 70%;
+        float: right;
+    }
+    .logo-container img {
+        max-height: 41px;
+    }
+    .nav-icon {
+        font-size: 35px;
+    }
+}
+// body content space between navbar and main content
+.ios {
+  .scroll-content {
+    margin-top: 63px!important;
+  }
+}
+
+/*       Phonelist filter cat              */
+.newPhone {
+    color: color($colors, new)!important;
+}
+.recPhone {
+    color: color($colors, primary)!important;
+}
+.salePhone {
+    color:#f33!important;
+}
+.allPhone {
+    color: black!important;
+}
+// image spinner, .center in my case to make the spinner at the center
+.img-loaded + ion-spinner {
+  display:none;
+}
+.center{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: auto;
+}

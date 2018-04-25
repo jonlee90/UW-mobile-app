@@ -1,0 +1,31 @@
+page-forum-add {
+  .content-ios #store-container {
+    color: #999;
+  }
+  ion-input, ion-textarea {
+    border: .5px solid rgb(204, 204, 204);
+  }
+  .input-container {
+    margin-bottom: 15px;
+  }
+  ion-textarea {
+    height: 300px;
+  }
+  .item-ios {
+    ion-textarea, ion-input {
+      padding: 0 10px;
+    }
+  }
+  ion-textarea .text-input {
+    height: 277px;
+  }
+  
+  .input-container.item-ios.item-block .item-inner {
+    border-bottom: none;
+  }
+  .input-container.item-md.item-block .item-inner {
+    border-bottom: none;
+    padding-right: 0px;
+    margin-right: 8px;
+  }
+}

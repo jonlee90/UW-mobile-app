@@ -1,0 +1,13 @@
+page-advertisement {
+  ion-slide {
+    overflow-y: scroll;
+  }
+  .slide-zoom {
+    height: 100%
+  }
+  .centerAd{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+}

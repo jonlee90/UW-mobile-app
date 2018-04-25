@@ -1,0 +1,31 @@
+page-change-pw {
+  .item-md.item-block .item-inner {
+    border-bottom: none;
+  }
+  .item-ios.item-block .item-inner {
+    border-bottom: none;
+  }
+  .item-md {
+    padding-left: 0px;
+  }
+  .input-box {
+    padding: 15px;
+  }    
+  .input-container {
+    background-color: white;
+    margin-bottom: 15px;
+  }
+  .main-container {
+    background-color: color($colors, primary);
+  }
+  .btn-container {
+    margin: 0 16px;
+  }
+  .submit-btn {
+    color: color($colors, secondary);
+    background-color: white;
+  }
+  .header-container p{
+    color: white;
+  }
+}

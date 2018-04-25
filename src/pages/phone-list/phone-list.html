@@ -1,0 +1,316 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon class='nav-icon' name="menu"></ion-icon>
+  </button>
+    <div class='logo-container' (tap)='navCtrl.popToRoot()'>
+      <img src='assets/img/wireless-logo.gif'>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <comp-page-title [title]='"PHONELIST-TITLE"'></comp-page-title>
+  <ion-grid>
+    <ion-row>
+      <ion-searchbar (ionInput)="searchTerm.next($event.target.value)" [(ngModel)]='searchValue' placeholder='{{"SEARCHBAR" | translate}}'></ion-searchbar>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <button ion-button (click)='onFilterClick()' block outline>{{'PHONELIST-FILTER' | translate}}</button>
+      </ion-col>
+      <ion-col col-6>
+        <p class='selectedFilter' [style.color]='selectFilterColor()'>{{selectedCat}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid *ngFor="let phone of phones" col-6 class='phone-container'>
+
+    <div class='icon-container'>
+      <div class='new-container'>
+        <ion-badge color="new" *ngIf='phone.is_new > 0'>New</ion-badge>
+      </div>
+      <ion-icon name="ios-star" class='hotIcon' *ngIf='phone.is_hot > 0'></ion-icon>
+      <ion-icon name="pricetag" class='saleIcon' *ngIf='phone.price_sale'></ion-icon>
+    </div>
+    
+    <ion-row class='phone-brand'>
+      <ion-col text-center>
+        {{phone.brand}} 
+      </ion-col>
+    </ion-row>
+    <ion-row class='phone-title'>
+      <ion-col text-center>
+        {{phone.p_name}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <div class='phone-price' [class.sale-price]='phone.price_sale'>
+        ${{phone.price_sale ? phone.price_sale : phone.price}}/mo
+      </div>
+    </ion-row>
+    <ion-row>
+      <div class='phone-desc'>
+        {{phone.desc_short}}
+      </div>
+    </ion-row>
+    <ion-row>
+      <div style='height: 200px;'>
+        <table style='position: relative' *ngIf='phone.photos[0]' [style.top]='calcTop(img)'>
+          <tr>
+            <td><img #img [src]='phone.photos[0].image' (tap)='onPhotoClick(phone.photos[0].image)'></td>
+          </tr>
+        </table>
+      </div>
+    </ion-row>
+    <ion-row text-center>
+      <button class='view-btn' (click)='onPhoneView(phone)' round outline ion-button>View</button>
+    </ion-row>
+  </ion-grid>
+  <ion-infinite-scroll (ionInfinite)="getMorePhones($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
+
+
+<!--
+  <ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon class='nav-icon' name="menu"></ion-icon>
+  </button>
+    <div class='logo-container' (tap)='navCtrl.popToRoot()'>
+      <img src='assets/img/wireless-logo.gif'>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <comp-page-title [title]='"PHONELIST-TITLE"'></comp-page-title>
+  <ion-grid>
+    <ion-row>
+      <ion-searchbar (ionInput)="searchTerm($event)" [(ngModel)]='searchValue' placeholder='{{"SEARCHBAR" | translate}}'></ion-searchbar>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <button ion-button (click)='onFilterClick()' block outline>{{'PHONELIST-FILTER' | translate}}</button>
+      </ion-col>
+      <ion-col col-6>
+        <p class='selectedFilter' [style.color]='selectFilColor()'>{{selectedCat}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid *ngFor="let phone of phones" col-6 class='phone-container'>
+
+    <div class='icon-container'>
+      <div class='new-container'>
+        <ion-badge color="secondary" *ngIf='phone.is_new > 0'>New</ion-badge>
+      </div>
+      <ion-icon name="ios-star" class='hotIcon' *ngIf='phone.is_hot > 0'></ion-icon>
+      <ion-icon name="pricetag" class='saleIcon' *ngIf='phone.price_sale'></ion-icon>
+    </div>
+    
+    <ion-row class='phone-brand'>
+      <ion-col text-center>
+        {{phone.brand}} 
+      </ion-col>
+    </ion-row>
+    <ion-row class='phone-title'>
+      <ion-col text-center>
+        {{phone.p_name}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <div class='phone-price'>
+        ${{phone.price}}/mo
+      </div>
+    </ion-row>
+    <ion-row>
+      <div class='phone-desc'>
+        {{phone.desc_short}}
+      </div>
+    </ion-row>
+    <ion-row>
+      <div style='height: 200px;' (tap)='onPhotoClick(phone.photos[0].image)'>
+        <table style='position: relative' [style.top]='calcTop(img)'>
+          <tr>
+              <td><img #img [src]='phone.photos[0].image'></td>
+          </tr>
+      </table>
+      </div>
+    </ion-row>
+    <ion-row text-center>
+      <button class='view-btn' (click)='onPhoneView(phone)' round outline ion-button>View</button>
+    </ion-row>
+  </ion-grid>
+  <ion-infinite-scroll (ionInfinite)="getMorePhones($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
+
+
+import { Component } from '@angular/core';
+import { NavController, ActionSheetController } from 'ionic-angular';
+
+import { PhoneInfoPage } from '../phone-info/phone-info';
+import { PhoneService } from '../../providers/phone';
+import { PhotoViewer } from '@ionic-native/photo-viewer';
+
+import { HelperService } from '../../providers/helper';
+@Component({
+  selector: 'page-phone-list',
+  templateUrl: 'phone-list.html',
+})
+export class PhoneListPage {
+    phones: any;
+    filterCat: string;
+    selectedCat: string = 'All';
+    listCounter: number = 0;
+    searchValue: any;
+
+    constructor(public navCtrl: NavController,
+                public actionSheetCtrl: ActionSheetController,
+                public phoneService: PhoneService,
+                public photoViewer: PhotoViewer,
+                public helperService: HelperService) {
+    }
+
+    ionViewWillEnter() {
+        if(!this.phones) {
+            this.helperService.showLoader('Loading...'); 
+            this.phoneService.getPhones(this.listCounter).subscribe((res: any) => {
+                this.phones = res.list;
+                this.helperService.dismissLoader();
+                this.listCounter++;
+                console.log(this.phones);
+            });
+        }
+    }
+    onFilterClick() {
+        let actionSheet = this.actionSheetCtrl.create({
+        title: 'Filter Phones',
+        buttons: [
+            {
+            text: 'All',
+            role: 'destructive',
+            handler: () => {
+                this.filterCat = null;
+                this.selectedCat = 'All';
+                this.getFilteredPhones();
+            },
+            icon: 'logo-buffer'
+            },{
+            text: 'New',
+            handler: () => {
+                this.filterCat = 'is_new';
+                this.selectedCat = 'New';
+                this.getFilteredPhones();
+            },
+            icon: "md-phone-portrait",
+            cssClass: "newPhone"
+            },{
+            text: 'On Sale',
+            handler: () => {
+                this.filterCat = 'price_sale';
+                this.selectedCat = 'Sale';
+                this.getFilteredPhones();
+            },
+            icon: 'pricetag',
+            cssClass: 'salePhone'
+            },{
+            text: 'Recommended',
+            handler: () => {
+                this.filterCat = 'is_hot';
+                this.selectedCat = 'Recommended';
+                this.getFilteredPhones();
+            },
+            icon: 'ios-star',
+            cssClass: "recPhone"
+            },{
+            text: 'Cancel',
+            role: 'cancel',
+            handler: () => {
+                
+            }
+            }
+        ]
+        });
+        actionSheet.present();
+    }
+    onPhotoClick(photo: string) {
+        this.photoViewer.show(photo);
+    }
+    onPhoneView(phone: any) {
+        this.navCtrl.push(PhoneInfoPage, {
+            phone: phone
+        });
+    }
+    searchTerm(ev: any) {
+      //  if(ev.target.value && ev.target.value.length > 2) {
+        this.listCounter = 0;
+        
+        this.phoneService.searchPhones(ev.target.value, this.listCounter, this.filterCat).subscribe((res: any) => {
+            console.log(res);
+            if(res.list) {
+                this.phones = res.list;
+                this.listCounter++;
+            }
+        });
+     /*   }else if(!ev.target.value || ev.target.value == '') {
+            this.listCounter = 0;
+            this.phoneService.getPhones(this.listCounter).subscribe((res: any) => {
+                if(res.list) {
+                    this.phones = res.list;
+                    this.listCounter++;
+                }
+            });
+        }*/
+    }
+    getFilteredPhones() {
+        this.listCounter = 0;
+        this.phoneService.searchPhones(this.searchValue, this.listCounter, this.filterCat).subscribe((res: any) => {
+            if(res.list) {
+                this.phones = res.list;
+                this.listCounter++;
+            }
+        });
+    }
+    getMorePhones(event: any) {
+        if((this.searchValue == '' || !this.searchValue ) && (!this.filterCat || this.filterCat == null)) {
+            console.log('no filter');
+            this.phoneService.getPhones(this.listCounter).subscribe((res: any) => {
+                if(res.list) {
+                    this.phones.push(...res.list);
+                    this.listCounter++;
+                    event.complete();
+                }
+            });
+        }else {
+            this.phoneService.searchPhones(this.searchValue, this.listCounter, this.filterCat).subscribe((res: any) => {
+                if(res.list) {
+                    this.phones.push(...res.list);
+                    this.listCounter++;
+                    event.complete();
+                }
+            });
+        }
+    }
+    calcTop(photo: any): string { 
+        let halfHeight = photo.height / 2;
+        return 'calc(50% - ' + halfHeight + 'px)';
+    }
+    selectFilColor() {
+        if(this.selectedCat == 'New') {
+            return 'red';
+        }else if(this.selectedCat == 'Sale') {
+            return 'green';
+        }else if(this.selectedCat == 'Recommended') {
+            return 'rgb(248, 160, 28)';
+        }else {
+            return 'black';
+        }
+        
+    }
+}
+
+-->

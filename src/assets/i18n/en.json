@@ -1,0 +1,121 @@
+{
+    "NAV-MYACCOUNT": "My Account",
+    "NAV-LOGOUT": "Logout",
+    "NAV-ENGLISH": "English",
+    "NAV-KOREAN": "Korean",
+    "NAV-LOGIN": "Login",
+    "NAV-HOME": "Home",
+    "NAV-PROMOTION": "Promotion",
+    "NAV-STORES": "Store Locator",
+    "NAV-QUICK-TOOLS": "Quick Tools",
+    "NAV-FAQ": "FAQ",
+    "NAV-CONTACT": "Contact Us",
+
+    "HOME-STORES": "Stores",
+    "HOME-PHONES": "Phones",
+    "HOME-NOTICE": "Notices",
+    "HOME-PLANS": "Verizon Plans",
+    "HOME-APPS": "Applications",
+    "HOME-LINKS": "Links",
+    "HOME-TIPS": "Tips",
+    "HOME-FAQ": "FAQ",
+    "HOME-CALL": "Call Center",
+    "HOME-YOUTUBE": "Youtube Videos",
+
+    "HOME-SEC-NOTICE": "Notice",
+    "HOME-SEC-NEW": "New Posts",
+    "HOME-SEC-ALL": "View All",
+
+    "CONTACT-TITLE": "Contact Us",
+
+    "LOGIN-HEADER": "ACCOUNT LOGIN",
+    "LOGIN-FORGOTPW": "Forgot Password?",
+    "LOGIN-LOGIN": "LOGIN",
+    "LOGIN-REGISTER": "REGISTER",
+    "LOGIN-EMAIL": "Email",
+    "LOGIN-PW": "Password",
+
+    "SIGNUP-HEADER": "ACCOUNT REGISTER",
+    "SIGNUP-FNAME": "First Name",
+    "SIGNUP-LNAME": "Last Name",
+    "SIGNUP-EMAIL": "Email",
+    "SIGNUP-DOB": "Date of Birth",
+    "SIGNUP-STORE": "Select Store",
+    "SIGNUP-PW": "Password",
+    "SIGNUP-PWC": "Password Confirm",
+    "SIGNUP-TERM": "I, Agree to all Terms and Conditions",
+    "SIGNUP-BTN": "SUBMIT",
+
+    "FORGOTPW-HEADER": "RECOVER PASSWORD",
+    "FORGOTPW-EMAIL": "Email",
+    "FORGOTPW-BTN": "SEND",
+
+    "CHANGEPW-C-PW": "Current Password",
+    "CHANGEPW-PW": "New Password",
+    "CHANGEPW-PWC": "Password Confirm",
+    "CHANGEPW-BTN": "Confirm",
+    "CHANGEPW-CODE": "Security Code",
+ 
+    "USERPROFILE-LNAME": "Last Name",
+    "USERPROFILE-FNAME": "First Name",
+    "USERPROFILE-NAME": "Name",
+    "USERPROFILE-EMAIL": "Email",
+    "USERPROFILE-DOB": "Date of Birth",
+    "USERPROFILE-PHONE": "Phone Number",
+    "USERPROFILE-DATE-CONTRACT": "Contract Start",
+    "USERPROFILE-DATE-UPGRADE": "Upgrade Available",
+    "USERPROFILE-DEVICE": "Device Number",
+    "USERPROFILE-DEVICE-NAME": "Device Name",
+    "USERPROFILE-EDIT": "Edit",
+    "USERPROFILE-SAVE": "Save",
+    "USERPROFILE-PW": "Change Password",
+
+    "FORUM-LIST-ADDBTN": "Post Question",
+
+    "FORUM-ADD-TYPE": "Message Type",
+    "FORUM-ADD-PRIV": "Private",
+    "FORUM-ADD-PUB": "Public",
+    "FORUM-ADD-TITLE": "Title",
+    "FORUM-ADD-MSG": "Message",
+    "FORUM-ADD-BTN": "SUBMIT",
+
+    "FORUM-INFO-COUNT": "Views",
+    "FORUM-INFO-REPLIES": "Replies",
+
+    "LINK-GO-LINK": "Go to link",
+    
+    "STORE-LIST-TITLE": "Find Stores",
+    "STORE-SEARCH-PLACEHOLDER": "Address or Zip Code",
+    "STORE-BTN": "Search",
+
+    "STORE-INFO-MANAGER": "Manager",
+    "STORE-INFO-PHONE": "Phone",
+    "STORE-INFO-EMAIL": "Email",
+    "STORE-INFO-ADDRESS": "Address",
+
+    "PLAN-TITLE": "Plans",
+    "PLAN-TAX": "Tax is not included",
+    "PLAN-MONTH": "Month",
+
+    "SEARCHBAR": "Search",
+
+    "PHONELIST-TITLE": "Phones",
+    "PHONELIST-FILTER": "Filter",
+
+    "PHONEINFO-INFO": "Device Information",
+
+    "QUICKTOOL-TITLE": "Quick Tools",
+    "QUICKTOOL-CALC": "Calculator",
+    "QUICKTOOL-DATECALC": "Date Calculator",
+    "QUICKTOOL-FLASHLIGHT": "Flashlight",
+    "QUICKTOOL-HOLIDAY": "Holiday Calendar",
+    "QUICKTOOL-HOLIDAY-TITLE": "Upcoming Holidays",
+    "QUICKTOOL-HOLIDAY-TODAY": "Today",
+    "QUICKTOOL-UNIT": "Unit Converter",
+
+    "LINKS-TITLE": "Helpful Links",
+
+    "FORUM-LIST-TITLE": "FAQ",
+
+    "FOOTER": "Scroll down for more "
+}

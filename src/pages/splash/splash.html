@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <ion-title>
+      <div class='logo-container'>
+        <img src='assets/img/wireless-logo.gif'>
+      </div>
+      <ion-buttons>
+        <button ion-button class='close-btn' (click)='viewCtrl.dismiss()'>
+            <ion-icon name="close-circle"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <img [src]='splashPage.image' (swipe)='viewCtrl.dismiss()'>
+</ion-content>

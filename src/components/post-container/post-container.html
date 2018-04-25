@@ -1,0 +1,93 @@
+<ion-grid [style.background-color]="gray ? 'rgb(243, 243, 245)' : 'white'" [style.border-bottom]='lastItem ? "1px solid black" : "none"'>
+    <div [ngSwitch]='containerName'>
+
+      <div *ngSwitchCase='"post"'>
+        <ion-row>
+          <ion-col class='forum-title'>
+            <ion-icon *ngIf='item.is_notice == 1' name="ios-megaphone"></ion-icon> {{item.title ? item.title: 'No Title'}}
+          </ion-col>
+        </ion-row>
+        <ion-row class='forum-body'>
+          <ion-col col-8>
+              {{(item.first_name ? item.first_name + ' ' + item.last_name : 'Ultimate Wireless')}} | {{item.date_added | amDateFormat: 'YYYY.MM.DD HH:mm'}}
+          </ion-col>
+          <ion-col class='chat-container' col-2>
+            <ion-icon name="md-eye"></ion-icon> {{item.view_count}}
+          </ion-col>
+          <ion-col class='chat-container' col-2>
+            <ion-icon name="md-chatboxes"></ion-icon> {{item.reply_count}}
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div *ngSwitchCase='"reply"'>
+        <ion-row>
+          <ion-col class='reply-title'>
+            <span>{{(item.first_name ? item.first_name + ' ' + item.last_name : 'Ultimate Wireless')}} |</span> {{item.date_added | amDateFormat: 'YYYY.MM.DD HH:mm'}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class='reply-body'>
+            <span>{{item.message}}</span>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div *ngSwitchCase='"link"'>
+        <ion-row>
+          <ion-col col-7 class='link-name'>
+              {{item.link_name}}
+          </ion-col>
+          <ion-col class='link-go' col-4>
+              {{'LINK-GO-LINK' | translate}}  
+          </ion-col>
+          <ion-col class='link-icon' col-1>
+              <ion-icon class='link-icon' name="ios-copy"></ion-icon>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class='link-url'>
+              {{item.url}}
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div *ngSwitchCase='"holiday"'>
+        <ion-row>
+          <ion-col col-6 class='holi-name'>
+            {{item.name}}
+          </ion-col>
+          <ion-col col-6 text-right>
+            {{item.date | amDateFormat: 'ddd, MM/DD/YYYY'}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12 text-right class='holi-remaining'>
+            {{countdownDates(item.start)}} remaining
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div *ngSwitchCase='"store"'>
+        <ion-row>
+          <ion-col col-6 class='store-name'>
+              {{item.s_name}}
+          </ion-col>
+          <ion-col col-2>
+            <span class='store-distance' *ngIf='item.distance'>{{getStoreDistance(item.distance)}} mi</span>
+          </ion-col>
+          <ion-col col-4 class='rating-container' *ngIf='item.yelp'>
+            <img [src]='getYelpRating(item.yelp)'>
+          </ion-col>
+        </ion-row>
+        <ion-row class='store-info'>
+          <ion-col col-8 class='store-addy'>
+            {{item.addr}}. {{item.addr2}} {{item.city}}
+          </ion-col>
+          <ion-col col-4 class='store-number'>
+            {{item.tel1 | phoneNumber}}
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+</ion-grid>

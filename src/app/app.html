@@ -1,0 +1,63 @@
+<ion-menu [content]="content">
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title><img src='assets/img/wireless-logo.gif'></ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+        <div ion-item class='user-container' *ngIf='loginKey'> 
+          <ion-row class='pad-left'>
+            <ion-col col-4 class='user-avatar-container'>
+              <ion-avatar item-left>
+                <img [src]="currentUserPic">
+              </ion-avatar>
+            </ion-col>
+            <ion-col class='user-info-container' col-8>
+              <ion-row class='user-email'>
+                <p>{{currentUser.email}}</p>
+              </ion-row>
+              <ion-row class='user-btn-container'>
+                <ion-col col-6>
+                  <button ion-button (click)='onMyAccount()'>{{"NAV-MYACCOUNT" | translate}}</button>
+                </ion-col>
+                <ion-col col-6>
+                  <button ion-button (click)='onLogout()'>{{"NAV-LOGOUT" | translate}}</button>
+                </ion-col>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </div>
+
+        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" [class.activeHighlight]='checkActive(p.name)' [style.display]='(loginKey && p.name == "PAGE-LOGIN") ? "none" : "block"'>
+          <ion-col class='nav-menu' text-center col-3><ion-icon name="{{p.icon}}"></ion-icon></ion-col>
+          <ion-col class='nav-menu nav-menu-text' col-8><p>{{p.title | translate}}</p></ion-col>
+        </button>
+
+        <button (click)='onSocialMedia("https://www.facebook.com/Ultimate-Wireless-733368993482746/")' ion-item>
+            <ion-col class='nav-menu' text-center col-3><ion-icon name="logo-facebook"></ion-icon></ion-col>
+            <ion-col class='nav-menu nav-menu-text' col-8><p>Facebook</p></ion-col>
+        </button>
+
+        <button (click)='onSocialMedia("https://www.youtube.com/channel/UCZbOHC04aZK8EMGGYrE_MrA")' ion-item>
+            <ion-col class='nav-menu' text-center col-3><ion-icon name="logo-youtube"></ion-icon></ion-col>
+            <ion-col class='nav-menu nav-menu-text' col-8><p>YouTube</p></ion-col>
+        </button>
+
+        <div ion-item class='translate-container'> 
+          <ion-row>
+            <ion-col col-6>
+              <button full ion-button (click)='onTranslateText("en")'>{{"NAV-ENGLISH" | translate}}</button>
+            </ion-col>
+            <ion-col col-6>
+              <button full ion-button (click)='onTranslateText("kr")'>{{"NAV-KOREAN" | translate}}</button>
+            </ion-col>
+          </ion-row>
+        </div>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content></ion-nav>

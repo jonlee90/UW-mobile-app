@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon class='nav-icon' name="menu"></ion-icon>
+  </button>
+    <div class='logo-container' (tap)='navCtrl.popToRoot()'>
+      <img src='assets/img/wireless-logo.gif'>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid class='calender-container'>
+    <button ion-button class='today-btn' (click)='getToday()'>{{'QUICKTOOL-HOLIDAY-TODAY' | translate}}</button>
+    <ion-row class='date-container'>
+      {{month}} {{day}} {{year}}    
+    </ion-row>
+    <div class='calender'>
+      <ion-row class='day-container'>
+        <ion-col>Sun</ion-col>
+        <ion-col>Mon</ion-col>
+        <ion-col>Tue</ion-col>
+        <ion-col>Wed</ion-col>
+        <ion-col>Thu</ion-col>
+        <ion-col>Fri</ion-col>
+        <ion-col>Sat</ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col *ngFor='let f of firstWeek' [class.selectedDate]='highlightDate(f)'>{{returnDate(f)}}</ion-col>
+      </ion-row>
+      <ion-row *ngIf='secondWeek.length > 0'>
+        <ion-col *ngFor='let f of secondWeek' [class.selectedDate]='highlightDate(f)'>{{returnDate(f)}}</ion-col>
+      </ion-row>
+      <ion-row *ngIf='thirdWeek.length > 0'>
+        <ion-col *ngFor='let f of thirdWeek' [class.selectedDate]='highlightDate(f)'>{{returnDate(f)}}</ion-col>
+      </ion-row>
+      <ion-row *ngIf='fourthWeek.length > 0'>
+        <ion-col *ngFor='let f of fourthWeek' [class.selectedDate]='highlightDate(f)'>{{returnDate(f)}}</ion-col>
+      </ion-row>
+      <ion-row *ngIf='fifthWeek.length > 0'>
+        <ion-col *ngFor='let f of fifthWeek' [class.selectedDate]='highlightDate(f)'>{{returnDate(f)}}</ion-col>
+      </ion-row>
+      <ion-row *ngIf='sixthWeek.length > 0'>
+        <ion-col *ngFor='let f of sixthWeek' [class.selectedDate]='highlightDate(f)'>{{returnDate(f)}}</ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+    <div>
+      <h2 text-center>{{'QUICKTOOL-HOLIDAY-TITLE' | translate}}</h2>
+    </div>
+    <comp-post-container *ngFor='let holi of currentHolidays; let i = index' (click)='onHolidayClick(holi)' [containerName]='"holiday"' [item]='holi' [count]='i'></comp-post-container>
+    <comp-post-container *ngFor='let holi of futureHolidays; let i = index' (click)='onHolidayClick(holi)' [containerName]='"holiday"' [itemsLength]='futureHolidays.length - 1' [item]='holi' [count]='i'></comp-post-container>
+</ion-content>

@@ -1,0 +1,28 @@
+page-forgot-pw {
+  .main-container {
+    background-color: color($colors, primary);
+  }
+  .header-container {
+    margin-top: 80px;
+    color: white;
+  }
+  .input-box {
+    padding: 0px 15px 15px;
+  }    
+  .submit-btn {
+    color: color($colors, secondary);
+  }
+  .input-container {
+    background-color: rgb(230, 231, 232);
+    margin-bottom: 15px;
+  }
+  .item-md.item-block .item-inner {
+    border-bottom: none;
+  }
+  .item-ios.item-block .item-inner {
+    border-bottom: none;
+  }
+  .item-md {
+    padding-left: 0px;
+  }
+}

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon class='nav-icon' name="menu"></ion-icon>
+  </button>
+    <div class='logo-container' (tap)='navCtrl.popToRoot()'>
+      <img src='assets/img/wireless-logo.gif'>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides centeredSlides (ionSlideDidChange)="slideChanged()" pager>
+    <ion-slide *ngFor='let ad of advertisements' (tap)='onPhotoClick(ad.image)'>
+      <table>
+        <tr>
+          <td>
+            <img [src]='ad.image' (load)="imageLoaded()" [ngClass]="{'img-loaded':loaded}" [style.visibility]="checkLoaded()" />
+            <ion-spinner [ngClass]="{'center':true}" *ngIf="!loaded"></ion-spinner>
+          </td>
+        </tr>
+      </table>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

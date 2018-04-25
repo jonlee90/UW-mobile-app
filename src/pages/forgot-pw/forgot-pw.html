@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon class='nav-icon' name="menu"></ion-icon>
+  </button>
+    <div class='logo-container' (tap)='navCtrl.popToRoot()'>
+      <img src='assets/img/wireless-logo.gif'>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class='main-container' padding>
+  <comp-page-title [title]='"FORGOTPW-HEADER"'></comp-page-title>
+  <div class='input-box'>
+    <ion-item class='input-container'>
+      <ion-input type="email" name="email" [placeholder]="'FORGOTPW-EMAIL' | translate" [(ngModel)]="email" required></ion-input>
+      <button ion-button clear color="dark" type="button" item-right>
+          <ion-icon name="person"></ion-icon>
+      </button>
+    </ion-item>
+    <div class='btn-container'>
+      <button ion-button class="submit-btn" color='light' full type="submit" (click)='onRecoverPw()'>{{'FORGOTPW-BTN' | translate}}</button>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,52 @@
+page-app-calculator {
+  #keypad {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  #keypad > ion-row {
+    height: 75px;
+    font-size: 28px;
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid #ddd;
+  }
+  #keypad > .display > input {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 50pt;
+    height: 75px;
+    width: 98%;
+    text-align: right;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 0;
+  }
+  #keypad > ion-row > ion-col {
+    padding-top: 15px;
+    border-right: 1px solid #ddd;
+    text-align: center;
+    background-color: white;
+    color: #272727;
+    height: 100%;
+  }
+  #keypad > .first-row > ion-col{
+    border-top: 1px solid #ddd;
+  }
+  #keypad > ion-row.display {
+    border: none;
+    margin-bottom: 20px;
+  }
+
+  #keypad > ion-row > ion-col.operation-key {
+    background-color: color($colors, primary);
+  }
+  #keypad > ion-row > ion-col:first-child {
+    border-left: 1px solid #ddd;
+  }
+  @media screen and (min-width: 550px) {
+    #keypad {
+      position: relative;
+    }
+  }
+}

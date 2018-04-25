@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon class='nav-icon' name="menu"></ion-icon>
+  </button>
+    <div class='logo-container' (tap)='navCtrl.popToRoot()'>
+      <img src='assets/img/wireless-logo.gif'>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid id="keypad">
+    <ion-row class="display">
+      <input [(ngModel)]="screen" name='screen' type="text" />
+    </ion-row>
+    <ion-row class='first-row'>
+      <ion-col col-3 (tap)='onKeypadClick("7")'>7</ion-col>
+      <ion-col col-3 (tap)='onKeypadClick("8")'>8</ion-col>
+      <ion-col col-3 (tap)='onKeypadClick("9")'>9</ion-col>
+      <ion-col col-3 (tap)='onKeypadClick("+")' class="operation-key">+</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-3 (tap)='onKeypadClick("4")'>4</ion-col>
+      <ion-col col-3 (tap)='onKeypadClick("5")'>5</ion-col>
+      <ion-col col-3 (tap)='onKeypadClick("6")'>6</ion-col>
+      <ion-col col-3 (tap)='onKeypadClick("-")' class="operation-key">–</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-3 (tap)='onKeypadClick("1")'>1</ion-col>
+      <ion-col col-3 (tap)='onKeypadClick("2")'>2</ion-col>
+      <ion-col col-3 (tap)='onKeypadClick("3")'>3</ion-col>
+      <ion-col col-3 (tap)='onKeypadClick("*")' class="operation-key">x</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-3 (tap)='onReset()'>CE</ion-col>
+      <ion-col col-3 (tap)='onKeypadClick("0")'>0</ion-col>
+      <ion-col col-3 (tap)='onCalculate()'>=</ion-col>
+      <ion-col col-3 (tap)='onKeypadClick("/")' class="operation-key">/</ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

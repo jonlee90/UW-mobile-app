@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon class='nav-icon' name="menu"></ion-icon>
+  </button>
+    <div class='logo-container' (tap)='navCtrl.popToRoot()'>
+      <img src='assets/img/wireless-logo.gif'>
+    </div>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content class="main-container" padding>
+    <comp-page-title [title]='"SIGNUP-HEADER"'></comp-page-title>
+  <div>
+    <form [formGroup]='registerForm' (ngSubmit)='onRegister(registerForm)'>
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <ion-item class='input-container'>
+              <ion-input type="text" name="firstName" [placeholder]="'SIGNUP-FNAME' | translate" formControlName="firstName" required></ion-input>
+          </ion-item>
+            <div class='error-message' *ngIf="registerForm.get('firstName').hasError('required') && registerForm.get('firstName').touched">
+              <p>First name is required</p>
+            </div>
+            <div class='error-message' *ngIf="registerForm.get('firstName').hasError('pattern') && registerForm.get('firstName').touched">
+              <p>No numbers or special characters allowed</p>
+            </div>
+            <div class='error-message' *ngIf="registerForm.get('firstName').hasError('maxlength') && registerForm.get('firstName').touched">
+              <p>Max length is 20 characters</p>
+            </div>
+          <ion-item class='input-container'>
+            <ion-input type="text" name="lastName" [placeholder]="'SIGNUP-LNAME' | translate" formControlName="lastName" required></ion-input>
+          </ion-item>
+            <div class='error-message' *ngIf="registerForm.get('lastName').hasError('required') && registerForm.get('lastName').touched">
+              <p>Last name is required</p>
+            </div>
+            <div class='error-message' *ngIf="registerForm.get('lastName').hasError('pattern') && registerForm.get('lastName').touched">
+              <p>No numbers or special characters allowed</p>
+            </div>
+            <div class='error-message' *ngIf="registerForm.get('lastName').hasError('maxlength') && registerForm.get('lastName').touched">
+              <p>Max length is 20 characters</p>
+            </div>
+          <ion-item class='input-container'>
+            <ion-input type="email" name="email" [placeholder]="'SIGNUP-EMAIL' | translate" formControlName="email" required></ion-input>
+          </ion-item>
+            <div class='error-message' *ngIf="registerForm.get('email').hasError('required') && registerForm.get('email').touched">
+              <p>Email is required</p>
+            </div>
+            <div class='error-message' *ngIf="registerForm.get('email').hasError('email') && registerForm.get('email').touched">
+              <p>Please enter a valid email</p>
+            </div>
+          <ion-item class='input-container label-container'>
+            <ion-label>{{'SIGNUP-DOB' | translate}}</ion-label>
+            <ion-datetime displayFormat="MM/DD/YYYY" pickerFormat="MM DD YYYY" formControlName="dob" name='dob'></ion-datetime>
+          </ion-item>
+          <ion-item class='input-container label-container'>
+            <ion-label>{{'SIGNUP-STORE' | translate}}</ion-label>
+            <ion-select formControlName='storeId' interface='popover' required>
+              <ion-option value='0'>Other</ion-option>
+              <ion-option *ngFor='let store of stores' [value]='store.id'>{{store.s_name}}</ion-option>
+            </ion-select>
+          </ion-item>
+            <div class='error-message' *ngIf="registerForm.get('storeId').hasError('required') && registerForm.get('storeId').touched">
+              <p>Store is required</p>
+            </div>
+          <ion-item class='input-container'>
+              <ion-input type="password" name="password" [placeholder]="'SIGNUP-PW' | translate" formControlName="password" required></ion-input>
+          </ion-item>
+            <div class='error-message' *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').touched">
+              <p>Password is required</p>
+            </div>
+            <div class='error-message' *ngIf="registerForm.get('password').hasError('pattern') && registerForm.get('password').touched">
+              <p>Minimum of 6 characters with at least 1 number</p>
+            </div>
+            <div class='error-message' *ngIf="registerForm.get('password').hasError('maxlength') && registerForm.get('password').touched">
+              <p>Max length is 20 characters</p>
+            </div>
+          <ion-item class='input-container'>
+            <ion-input type="password" name="passwordConfirm" [placeholder]="'SIGNUP-PWC' | translate" formControlName="passwordConfirm" required></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <div class='terms-container'>
+        <ion-item>
+          <ion-label>{{'SIGNUP-TERM' | translate}}</ion-label>
+          <ion-checkbox formControlName="termsCondition" name='termsCondition' color="dark"></ion-checkbox>
+        </ion-item>
+      </div>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="signup-col">
+        <button ion-button class="submit-btn" full type="submit" color='light' [disabled]='!registerForm.valid'>{{'SIGNUP-BTN' | translate}}</button>
+      </ion-col>
+    </ion-row>
+    </form>
+  </div>
+</ion-content>
+

@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon class='nav-icon' name="menu"></ion-icon>
+  </button>
+    <div class='logo-container' (tap)='navCtrl.popToRoot()'>
+      <img src='assets/img/wireless-logo.gif'>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content text-center padding>
+  <comp-page-title [title]='"QUICKTOOL-TITLE"'></comp-page-title>
+  <ion-grid>
+    <ion-row class='app-container'>
+      <ion-col *ngFor='let app of applications' (tap)='onPageClick(app.page)' col-6>
+        <div class='icon-container'>
+          <ion-icon name="ios-paper"></ion-icon>
+        </div>
+        <div class='title-container'>
+          {{app.name | translate}}
+        </div>
+      </ion-col>
+      <ion-col (tap)='onPageClick("Home")' col-6>
+        <div class='icon-container'>
+          <ion-icon name="home"></ion-icon>
+        </div>
+        <div class='title-container'>
+          {{'NAV-HOME' | translate}}
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

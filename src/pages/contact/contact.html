@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon class='nav-icon' name="menu"></ion-icon>
+  </button>
+    <div class='logo-container' (tap)='navCtrl.popToRoot()'>
+      <img src='assets/img/wireless-logo.gif'>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <comp-page-title [title]='"CONTACT-TITLE"'></comp-page-title>
+  <ion-grid>
+    <ion-row>
+      <ion-col>Headquarter: <span>2748 W 8th St 207</span></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>Phone: <span>909-677-0000</span></ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>Email: <span>customerservice@ultimatevzw.com</span></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

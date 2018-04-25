@@ -1,0 +1,139 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon class='nav-icon' name="menu"></ion-icon>
+  </button>
+    <div class='logo-container' (tap)='navCtrl.popToRoot()'>
+      <img src='assets/img/wireless-logo.gif'>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class='profile-header'>
+    <ion-grid text-center>
+      <ion-row class='user-avatar-container'>
+        <ion-avatar>
+            <img [src]="currentUserPic">
+        </ion-avatar>
+      </ion-row>
+      <ion-row>
+        <div class='profile-email' *ngIf='currentUserData'>
+          {{currentUserData.email}}
+        </div>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <div class='profile-body' padding>
+    <ion-grid *ngIf='currentUserData'>
+     
+      <ion-row *ngIf='edit'>
+        <ion-col col-6>
+          {{'USERPROFILE-LNAME' | translate}}
+        </ion-col>
+        <ion-col col-6>
+          <ion-item class='input-container'>
+            <ion-input type="text" name="lName" [(ngModel)]='currentUserData.lName' required></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+ 
+      <ion-row>
+        <ion-col col-6>
+         {{(edit ? 'USERPROFILE-FNAME' : 'USERPROFILE-NAME') | translate}}
+        </ion-col>
+        <ion-col col-6>
+          <div *ngIf='!edit; else editName;'> 
+           {{currentUserData.fName + ' ' + currentUserData.lName}}
+          </div>
+          <ng-template #editName>
+            <ion-item class='input-container'>
+              <ion-input type="text" name="fName" [(ngModel)]='currentUserData.fName' required></ion-input>
+            </ion-item>
+          </ng-template>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6>
+         {{'USERPROFILE-EMAIL' | translate}}
+        </ion-col>
+        <ion-col col-6>
+          <div *ngIf='!edit; else editEmail;'> 
+           {{currentUserData.email}}
+          </div>
+          <ng-template #editEmail>
+            <ion-item class='input-container'>
+              <ion-input type="text" name="email" [(ngModel)]='currentUserData.email' required></ion-input>
+            </ion-item>
+          </ng-template>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6>
+         {{'USERPROFILE-DOB' | translate}}
+        </ion-col>
+        <ion-col col-6>
+          <div *ngIf='!edit; else editDob;'> 
+          {{currentUserData.dob | date: 'MM-dd-y'}}
+          </div>
+          <ng-template #editDob>
+            <ion-item class='input-container'>
+              <ion-datetime displayFormat="MM-DD-YYYY" [(ngModel)]='currentUserData.dob' pickerFormat="MM-DD-YYYY" name='dob'></ion-datetime>
+            </ion-item>
+          </ng-template>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6>
+         {{'USERPROFILE-PHONE' | translate}}
+        </ion-col>
+        <ion-col col-6 *ngIf='currentUserData.tel; else noTel'>
+           {{currentUserData.tel | phoneNumber}}
+        </ion-col>
+        <ng-template #noTel>
+          <ion-col col-6>
+
+          </ion-col>
+        </ng-template>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6>
+         {{'USERPROFILE-DATE-CONTRACT' | translate}}
+        </ion-col>
+        <ion-col col-6>
+           {{currentUserData.date_contract_begin}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6>
+         {{'USERPROFILE-DATE-UPGRADE' | translate}}
+        </ion-col>
+        <ion-col col-6>
+           {{currentUserData.date_upgrade_eligible}}
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf='phoneModel'>
+        <ion-col col-6>
+         {{'USERPROFILE-DEVICE' | translate}}
+        </ion-col>
+        <ion-col col-6>
+           {{phoneModel}}
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf='modelName'>
+        <ion-col col-6>
+         {{'USERPROFILE-DEVICE-NAME' | translate}}
+        </ion-col>
+        <ion-col col-6>
+           {{modelName}}
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div class='extra-container' padding></div>
+  <div class='btn-container'>
+    <button full (click)='onChangePw()' color='secondary' ion-button>{{'USERPROFILE-PW' | translate}}</button>
+    <button full (click)='onEditProfile()' ion-button>{{btnType | translate}}</button>
+  </div>
+</ion-content>

@@ -1,0 +1,71 @@
+page-phone-list {
+  .icon-container {
+    padding: 0 10px;
+    min-height: 20px;
+    text-align: right;
+    .new-container {
+      position: absolute;
+      left: 10px;
+      display: inline-block;
+      p {
+        margin: 0px;
+      }
+    }
+    .hotIcon {
+      color: color($colors, primary);
+      font-size: 18px;
+    }
+    .saleIcon {
+      font-size: 18px;
+      color: #f33;
+    }
+  }
+  .selectedFilter {
+    text-align: center;
+    font-weight: bold;
+  }
+  .phone-container {
+    display: inline-block;
+    position: relative;
+  }
+  .scroll-content {
+    padding-top: 0px!important;
+  }
+  .view-btn {
+    margin: 0 auto;
+    height: 28px;
+    text-transform: capitalize;
+    color: gray;
+    font-weight: 300;
+    padding: 0 30px;
+  }
+  .phone-brand {
+    .col {
+      padding: 0px;
+    }
+  }
+  .phone-title {
+    .col {
+      font-weight: bold;
+    }
+  }
+  .phone-price {
+    margin: 0 auto;
+    color: white;
+    background-color: color($colors, primary);
+    border: 1px solid color($colors, primary);
+    border-radius: 10px;
+    padding: 2px 10px;
+    font-size: 12px;
+  }
+  .phone-desc {
+    margin: 3px auto 0px;
+    font-size: 10px;
+    height: 14px;
+    color: gray;
+  }
+  .sale-price {
+    background-color: #f33;
+    border: 1px solid #f33;
+  }
+}

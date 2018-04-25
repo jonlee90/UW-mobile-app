@@ -1,0 +1,18 @@
+comp-header {
+  .logo-container {
+    width: 75%;
+    float: right;
+  }
+  .logo-container img {
+    max-height: 41px;
+  }
+  .nav-icon {
+    font-size: 35px;
+  }
+  .toolbar-ios ion-title {
+    padding: 0 50px 1px;
+  }
+  .back-button.show-back-button {
+    z-index: 99;
+  }
+}
